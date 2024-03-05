@@ -1,0 +1,77 @@
+:root {
+    --primary-background-colour: #f0eef1;
+    --secondary-background-colour: #fffbfb;
+    --font-colour: #050505;
+    --primary-colour: #4aafd0;
+
+    background-color: var(--primary-background-colour);
+    color: var(--font-colour);
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+}
+
+a:link {
+    color: var(--font-colour);
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--secondary-background-colour);
+}
+
+#add-btn {
+    margin-left: auto;
+    background-color: var(--primary-colour);
+    color: var(--secondary-background-colour);
+    border: none;
+    padding: 0.5rem 1rem;
+    /* font-size: 0.5rem; */
+    /* height: 2rem; */
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    width: 80%;
+    margin: 2rem auto;
+    gap: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20vw);
+    justify-content: center
+}
+
+.card {
+    display: grid;
+    text-align: center;
+    padding: 1rem;
+    height: 35vh;
+    background-color: var(--secondary-background-colour);
+    border-radius: 12px;
+}
+
+.card button {
+    border: none;
+    border-radius: 12px;
+    height: 90%;
+    cursor: pointer;
+}
+
+footer {
+    background-color: var(--secondary-background-colour);
+    text-align: center;
+    padding: 1rem;
+}
