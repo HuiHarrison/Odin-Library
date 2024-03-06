@@ -29,6 +29,14 @@ closeDialogBtn.addEventListener("click", () => {
     dialog.close();
 })
 
+// Close dialog when clicking outside of it
+dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+        dialog.close();
+    }
+});
+
+// Add book to myLibrary and reset form when submit
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
     addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
