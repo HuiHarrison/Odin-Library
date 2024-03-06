@@ -53,7 +53,6 @@ dialog {
     border-radius: var(--border-radius-value);
     border: none;
     background-color: var(--secondary-background-colour);
-    height: 60%;
     width: 40%;
 }
 
@@ -112,12 +111,13 @@ dialog input::placeholder {
 }
 
 dialog input[type="checkbox"] {
-    height: 100%;
+    height: 1rem;
     width: 1rem;
 }
 
 dialog form > div {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
 
@@ -126,10 +126,10 @@ dialog form button[type="submit"] {
     color: var(--secondary-background-colour);
     border-radius: var(--border-radius-value);
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     cursor: pointer;
     font-size: 1.2rem;
-    margin-top: auto;
+    margin-top: 2rem;
 }
 
 ::backdrop {
