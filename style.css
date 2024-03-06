@@ -75,7 +75,7 @@ dialog div > form {
     height: 1.2rem;
     width: 1.2rem;
     color: var(--secondary-background-colour);
-    background-color: var(--red);
+    background-color: #ff6363;
     padding: 0;
     border-radius: 6px;
     border: none;
@@ -162,6 +162,10 @@ dialog form button[type="submit"] {
     height: 90%;
     cursor: pointer;
     background-color: var(--primary-background-colour);
+}
+
+.card .remove-button {
+    background-color: #ff6363;
 }
 
 footer {
