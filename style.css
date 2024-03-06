@@ -49,6 +49,11 @@ main {
     cursor: pointer;
 }
 
+#add-btn:hover,
+dialog form button[type="submit"]:hover {
+    background-color: #5cb2ce;
+}
+
 dialog {
     border-radius: var(--border-radius-value);
     border: none;
@@ -156,6 +161,11 @@ dialog form button[type="submit"] {
     border-radius: var(--border-radius-value);
 }
 
+.book-title {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
 .card button {
     border: none;
     border-radius: var(--border-radius-value);
@@ -164,8 +174,29 @@ dialog form button[type="submit"] {
     background-color: var(--primary-background-colour);
 }
 
+
+button.read {
+    background-color: #9fff9c;
+}
+
+button.read:hover {
+    background-color: #affbac;
+}
+
+button.not-read {
+    background-color: #ff9c9c;
+}
+
+button.not-read:hover {
+    background-color: #ffa3a3;
+}
+
 .card .remove-button {
     background-color: #ff6363;
+}
+
+.card .remove-button:hover {
+    background-color: #ff7171;
 }
 
 footer {

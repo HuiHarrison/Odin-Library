@@ -57,9 +57,18 @@ function displayLibrary() {
                 <div class="book-title">${book.title}</div>
                 <div class="book-author">${book.author}</div>
                 <div class="book-pages">${book.pages} pages</div>
-                <button type="button">${book.read ? "Read" : "Not Read"}</button>
+                <button class=${book.read ? "read" : "not-read"} type="button">${book.read ? "Read" : "Not Read"}</button>
                 <button class="remove-button" type="button">Remove</button>
             </div>
         `;
     }
 }
+
+
+// TESTING PURPOSE
+addBookToLibrary("Harry Potter", "J.K. Rowling", 325, true);
+addBookToLibrary("The Hunger Games", "Suzanne Collins", 536, false);
+addBookToLibrary("The Lord of the Rings", "J. R. R. Tolkien", 634, true);
+addBookToLibrary("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 243, true);
+addBookToLibrary("Dune", "Frank Herbert", 846, true);
+displayLibrary();
