@@ -13,13 +13,10 @@
     font-family: "Open Sans", sans-serif;
 }
 
-a:link {
-    color: var(--font-colour);
-    text-decoration: none;
-}
-
+a:link,
 a:visited {
     color: var(--font-colour);
+    text-decoration: none;
 }
 
 body {
@@ -104,6 +101,10 @@ dialog input {
     border-radius: 6px;
     border: 1px solid grey;
     height: 2rem;
+}
+
+dialog input:focus {
+    border: 1px solid var(--primary-colour);
 }
 
 dialog input::placeholder {
