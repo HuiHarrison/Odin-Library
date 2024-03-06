@@ -18,7 +18,32 @@
     </header>
 
     <main>
+        <dialog>
+            <div>
+                <button id="close-dialog"><i class="fa-regular fa-xmark"></i></button>
+                <form>
+                    <legend><b>Add New Book</b></legend>
+
+                    <label for="title-input">Title:</label>
+                    <input type="text" name="title" id="title-input" autofocus>
+
+                    <label for="author-input">Author:</label>
+                    <input type="text" name="author" id="author-input">
+
+                    <label for="pages-input">Pages:</label>
+                    <input type="number" name="pages" id="pages-input">
+                    
+                    <div>
+                        <label for="read-input">Have you read it?</label>
+                        <input type="checkbox" name="read" id="read-input">
+                    </div>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+          </dialog>
         <button id="add-btn" type="button">Add Books</button>
+        
         <div class="container">
             <div class="card">
                 <div class="book-title">Harry Potter</div>

@@ -1,3 +1,7 @@
+const dialog = document.querySelector("dialog");
+const addBtn = document.querySelector("#add-btn");
+const closeDialogBtn = document.querySelector("#close-dialog");
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -11,3 +15,11 @@ function addBookToLibrary() {
     let book = new Book();
     myLibrary.push(book);
 }
+
+addBtn.addEventListener("click", () => {
+    dialog.showModal();
+})
+
+closeDialogBtn.addEventListener("click", () => {
+    dialog.close();
+})
