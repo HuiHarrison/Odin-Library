@@ -8,5 +8,6 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-  // do stuff here
+    let book = new Book();
+    myLibrary.push(book);
 }
