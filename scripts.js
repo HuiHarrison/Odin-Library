@@ -50,17 +50,44 @@ submitBtn.addEventListener("click", (event) => {
 })
 
 function displayLibrary() {
+    // Clear container before adding books
     container.innerHTML = "";
     for (const book of myLibrary) {
-        container.innerHTML += `
-            <div class="card">
-                <div class="book-title">${book.title}</div>
-                <div class="book-author">${book.author}</div>
-                <div class="book-pages">${book.pages} pages</div>
-                <button class=${book.read ? "read" : "not-read"} type="button">${book.read ? "Read" : "Not Read"}</button>
-                <button class="remove-button" type="button">Remove</button>
-            </div>
-        `;
+        // Create a card
+        const cardDiv = document.createElement("div");
+        cardDiv.classList.add("card");
+
+        // Create book title div
+        const bookTitleDiv = document.createElement("div");
+        bookTitleDiv.classList.add("book-title");
+        bookTitleDiv.textContent = book.title;
+
+        // Create book author div
+        const bookAuthorDiv = document.createElement("div");
+        bookAuthorDiv.classList.add("book-author");
+        bookAuthorDiv.textContent = book.author;
+
+        // Create book pages div
+        const bookPagesDiv = document.createElement("div");
+        bookPagesDiv.classList.add("book-pages");
+        bookPagesDiv.textContent = `${book.pages} pages`;
+
+        // Create book read button
+        const readBtn = document.createElement("button");
+        readBtn.classList.add(`${book.read ? "read" : "not-read"}`);
+        readBtn.setAttribute("type", "button");
+        readBtn.textContent = book.read ? "Read" : "Not Read";
+
+        // Create book remove button
+        const removeBtn = document.createElement("button");
+        removeBtn.classList.add("remove-button");
+        removeBtn.setAttribute("type", "button");
+        removeBtn.textContent = "Remove";
+
+        // Append all book info to card
+        cardDiv.append(bookTitleDiv, bookAuthorDiv, bookPagesDiv, readBtn, removeBtn);
+        // Append card to container
+        container.appendChild(cardDiv);
     }
 }
 
@@ -69,6 +96,6 @@ function displayLibrary() {
 addBookToLibrary("Harry Potter", "J.K. Rowling", 325, true);
 addBookToLibrary("The Hunger Games", "Suzanne Collins", 536, false);
 addBookToLibrary("The Lord of the Rings", "J. R. R. Tolkien", 634, true);
-addBookToLibrary("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 243, true);
-addBookToLibrary("Dune", "Frank Herbert", 846, true);
+addBookToLibrary("Atomic Habits", "James Clear", 243, true);
+addBookToLibrary("Dune", "Frank Herbert", 846, false);
 displayLibrary();
