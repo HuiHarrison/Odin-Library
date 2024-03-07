@@ -45,12 +45,13 @@ dialog.addEventListener("click", (event) => {
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
+    // Prevent new book submition if book title already exsisted in myLibrary
     let bookTitleList = []
     for (book of myLibrary) {
         bookTitleList.push(book.title.toUpperCase());
     }
 
-    if (!bookTitleList.includes(titleInput.value.toUpperCase())) {
+    if (!bookTitleList.includes(titleInput.value.toUpperCase()) && (pagesInput.value < 1000000)) {
         addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
         titleInput.value = "";
         authorInput.value = "";
@@ -59,6 +60,10 @@ submitBtn.addEventListener("click", (event) => {
         dialog.close();
         displayLibrary();
     }
+
+    // else if () {
+        
+    // } 
 })
 
 function displayLibrary() {
