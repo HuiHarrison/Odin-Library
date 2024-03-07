@@ -17,6 +17,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.changeReadStatus = function() {
+    this.read = !this.read;
+}
+
 function addBookToLibrary(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
@@ -77,6 +81,10 @@ function displayLibrary() {
         readBtn.classList.add(`${book.read ? "read" : "not-read"}`);
         readBtn.setAttribute("type", "button");
         readBtn.textContent = book.read ? "Read" : "Not Read";
+        readBtn.addEventListener("click", () => {
+            book.changeReadStatus();
+            displayLibrary();
+        });
 
         // Create book remove button
         const removeBtn = document.createElement("button");
