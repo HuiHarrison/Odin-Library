@@ -47,6 +47,7 @@ main {
     margin: 1rem 1rem 1rem auto;
     border-radius: var(--border-radius-value);
     cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 #add-btn:hover,
@@ -159,6 +160,7 @@ dialog form button[type="submit"] {
     height: 35vh;
     background-color: var(--secondary-background-colour);
     border-radius: var(--border-radius-value);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .book-title {

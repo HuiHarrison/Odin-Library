@@ -51,7 +51,7 @@ submitBtn.addEventListener("click", (event) => {
         bookTitleList.push(book.title.toUpperCase());
     }
 
-    if (!bookTitleList.includes(titleInput.value.toUpperCase()) && (pagesInput.value < 1000000)) {
+    if (!bookTitleList.includes(titleInput.value.toUpperCase()) && (pagesInput.value <= 1000000)) {
         addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
         titleInput.value = "";
         authorInput.value = "";
