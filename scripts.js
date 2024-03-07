@@ -83,6 +83,10 @@ function displayLibrary() {
         removeBtn.classList.add("remove-button");
         removeBtn.setAttribute("type", "button");
         removeBtn.textContent = "Remove";
+        removeBtn.addEventListener("click", () => {
+            myLibrary.splice(myLibrary.findIndex(x => x.title === book.title), 1);
+            displayLibrary()
+        });
 
         // Append all book info to card
         cardDiv.append(bookTitleDiv, bookAuthorDiv, bookPagesDiv, readBtn, removeBtn);
