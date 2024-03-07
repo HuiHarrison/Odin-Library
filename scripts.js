@@ -44,13 +44,21 @@ dialog.addEventListener("click", (event) => {
 // Add book to myLibrary and reset form when submit
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
-    titleInput.value = "";
-    authorInput.value = "";
-    pagesInput.value = "";
-    readInput.checked = false;
-    dialog.close();
-    displayLibrary();
+
+    let bookTitleList = []
+    for (book of myLibrary) {
+        bookTitleList.push(book.title.toUpperCase());
+    }
+
+    if (!bookTitleList.includes(titleInput.value.toUpperCase())) {
+        addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
+        titleInput.value = "";
+        authorInput.value = "";
+        pagesInput.value = "";
+        readInput.checked = false;
+        dialog.close();
+        displayLibrary();
+    }
 })
 
 function displayLibrary() {
