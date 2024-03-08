@@ -91,8 +91,8 @@ function validateInputs() {
 
     if (pagesValue === "") {
         setError(pagesInput, "Pages is Required");
-    } else if (pagesValue > 1000000) {
-        setError(pagesInput, "Maximum 1,000,000 Pages");
+    } else if (pagesValue > 1000000 || pagesValue < 0) {
+        setError(pagesInput, "Exceed Range");
     } else {
         setSuccess(pagesInput);
         pagesValidate = true;
