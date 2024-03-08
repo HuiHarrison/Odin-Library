@@ -43,6 +43,7 @@ main {
 #add-btn {
     background-color: var(--primary-colour);
     color: var(--secondary-background-colour);
+    font-size: 1rem;
     border: none;
     padding: 0.5rem 1rem;
     margin: 1rem 1rem 1rem auto;
@@ -185,6 +186,7 @@ dialog form button[type="submit"] {
 }
 
 .card button {
+    font-size: 1rem;
     border: none;
     border-radius: var(--border-radius-value);
     height: 90%;
