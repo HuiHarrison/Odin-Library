@@ -31,27 +31,82 @@ addBtn.addEventListener("click", () => {
 })
 
 closeDialogBtn.addEventListener("click", () => {
+    setSuccess(titleInput);
+    setSuccess(authorInput);
+    setSuccess(pagesInput);
     dialog.close();
 })
 
 // Close dialog when clicking outside of it
 dialog.addEventListener("click", (event) => {
     if (event.target === dialog) {
+        setSuccess(titleInput);
+        setSuccess(authorInput);
+        setSuccess(pagesInput);
         dialog.close();
     }
 });
+
+function setSuccess(element) {
+    const errorDisplay = element.parentElement.querySelector(".error-message")
+
+    errorDisplay.innerText = "";
+    element.classList.add("success");
+    element.classList.remove("error");
+}
+
+function setError(element, message) {
+    const errorDisplay = element.parentElement.querySelector(".error-message")
+
+    errorDisplay.innerText = message;
+    element.classList.add("error");
+    element.classList.remove("success");
+}
+
+function validateInputs() {
+    const titleValue = titleInput.value.trim();
+    const authorValue = authorInput.value.trim();
+    const pagesValue = pagesInput.value.trim()
+    let titleValidate = false;
+    let authorValidate = false;
+    let pagesValidate = false;
+
+    if (titleValue === "") {
+        setError(titleInput, "Title is Required");
+    } else if (titleValue.length > 25) {
+        setError(titleInput, "Maximum 25 Characters");
+    } else {
+        setSuccess(titleInput);
+        titleValidate = true;
+    }
+
+    if (authorValue === "") {
+        setError(authorInput, "Author is Required");
+    } else if (authorValue.length > 20) {
+        setError(authorInput, "Maximum 25 Characters");
+    } else {
+        setSuccess(authorInput);
+        authorValidate = true;
+    }
+
+    if (pagesValue === "") {
+        setError(pagesInput, "Pages is Required");
+    } else if (pagesValue > 1000000) {
+        setError(pagesInput, "Maximum 1,000,000 Pages");
+    } else {
+        setSuccess(pagesInput);
+        pagesValidate = true;
+    }
+
+    // return true if all 3 are true
+    return (titleValidate && authorValidate && pagesValidate)
+}
 
 // Add book to myLibrary and reset form when submit
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
-    // Prevent new book submition if book title already exsisted in myLibrary
-    let bookTitleList = []
-    for (book of myLibrary) {
-        bookTitleList.push(book.title.toUpperCase());
-    }
-
-    if (!bookTitleList.includes(titleInput.value.toUpperCase()) && (pagesInput.value <= 1000000)) {
+    if (validateInputs()) {
         addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
         titleInput.value = "";
         authorInput.value = "";
@@ -60,10 +115,6 @@ submitBtn.addEventListener("click", (event) => {
         dialog.close();
         displayLibrary();
     }
-
-    // else if () {
-        
-    // } 
 })
 
 function displayLibrary() {

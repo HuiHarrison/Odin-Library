@@ -59,7 +59,7 @@ dialog {
     border-radius: var(--border-radius-value);
     border: none;
     background-color: var(--secondary-background-colour);
-    width: 40%;
+    width: 400px;
 }
 
 dialog > div {
@@ -71,7 +71,7 @@ dialog > div {
 dialog div > form {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap: 0.5rem;
     flex: 1;
 }
 
@@ -91,12 +91,6 @@ legend {
     font-size: 1.5rem;
 }
 
-dialog label,
-dialog form > div {
-    color: grey;
-    margin: 1rem 0 0.1rem 0;
-}
-
 dialog form div label {
     font-size: 1rem;
     margin: 0;
@@ -104,8 +98,21 @@ dialog form div label {
 
 dialog input {
     border-radius: 6px;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     height: 2rem;
+}
+
+dialog input.success {
+    border: 1px solid grey;
+}
+
+dialog input.error {
+    border: 1px solid #ff6363;
+}
+
+.error-message {
+    color: #ff6363;
+    font-size: 0.7rem;
 }
 
 dialog input:focus {
@@ -123,6 +130,14 @@ dialog input[type="checkbox"] {
 
 dialog form > div {
     display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    color: grey;
+}
+
+dialog form > div:last-of-type {
+    display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 0.5rem;
 }

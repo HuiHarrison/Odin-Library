@@ -24,14 +24,23 @@
                 <form>
                     <legend><b>Add New Book</b></legend>
 
-                    <label for="title-input">Title:</label>
-                    <input type="text" name="title" id="title-input" maxlength="25" required autofocus>
-
-                    <label for="author-input">Author:</label>
-                    <input type="text" name="author" id="author-input" maxlength="20" required>
-
-                    <label for="pages-input">Pages:</label>
-                    <input type="number" name="pages" id="pages-input" required>
+                    <div>
+                        <label for="title-input">Title:</label>
+                        <input class="success" type="text" name="title" id="title-input" autofocus>
+                        <div class="error-message"></div>
+                    </div>
+                    
+                    <div>
+                        <label for="author-input">Author:</label>
+                        <input class="success" type="text" name="author" id="author-input">
+                        <div class="error-message"></div>
+                    </div>
+                    
+                    <div>
+                        <label for="pages-input">Pages:</label>
+                        <input class="success" type="number" name="pages" id="pages-input">
+                        <div class="error-message"></div>
+                    </div>
                     
                     <div>
                         <label for="read-input">Have you read it?</label>
