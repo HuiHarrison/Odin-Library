@@ -79,29 +79,51 @@ function validateInputs() {
     let authorValidate = false;
     let pagesValidate = false;
 
+    // Title Validation
+    // Check input not empty
     if (titleValue === "") {
         setError(titleInput, "Title is Required");
-    } else if (titleValue.length > 25) {
+    } 
+    // Check not longer than 25 char
+    else if (titleValue.length > 25) {
         setError(titleInput, "Maximum 25 Characters");
-    } else {
+    } 
+    // Check not title not already exist in myLibrary[]
+    else if (Library.myLibrary.some(book => book.title.toLowerCase() === titleValue.toLowerCase())) {
+        setError(titleInput, "Book Already Existed");
+    } 
+    // Else valid
+    else {
         setSuccess(titleInput);
         titleValidate = true;
     }
 
+    // Author Validation
+    // Check input not empty
     if (authorValue === "") {
         setError(authorInput, "Author is Required");
-    } else if (authorValue.length > 20) {
-        setError(authorInput, "Maximum 25 Characters");
-    } else {
+    } 
+    // Check not longer than 20 char
+    else if (authorValue.length > 20) {
+        setError(authorInput, "Maximum 20 Characters");
+    } 
+    // Else valid
+    else {
         setSuccess(authorInput);
         authorValidate = true;
     }
 
+    // Pages Validation
+    // Check input not empty
     if (pagesValue === "") {
         setError(pagesInput, "Pages is Required");
-    } else if (pagesValue > 1000000 || pagesValue < 1) {
+    } 
+    // Check in range 1 to 1,000,000
+    else if (pagesValue > 1000000 || pagesValue < 1) {
         setError(pagesInput, "Exceed Range");
-    } else {
+    } 
+    // Else valid
+    else {
         setSuccess(pagesInput);
         pagesValidate = true;
     }
