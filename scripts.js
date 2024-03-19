@@ -8,22 +8,27 @@ const readInput = document.querySelector("#read-input");
 const submitBtn = document.querySelector("button[type='submit']");
 const container = document.querySelector(".container");
 
-const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+// Library Object
+const Library = {
+    myLibrary: [],
+    addBookToLibrary: function(title, author, pages, read) {
+        let book = new Book(title, author, pages, read);
+        this.myLibrary.push(book);
+    }
 }
 
-Book.prototype.changeReadStatus = function() {
-    this.read = !this.read;
-}
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-function addBookToLibrary(title, author, pages, read) {
-    let book = new Book(title, author, pages, read);
-    myLibrary.push(book);
+    changeReadStatus() {
+        this.read = !this.read;
+    }
 }
 
 addBtn.addEventListener("click", () => {
@@ -110,7 +115,7 @@ submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
     if (validateInputs()) {
-        addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
+        Library.addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
         titleInput.value = "";
         authorInput.value = "";
         pagesInput.value = "";
@@ -123,7 +128,7 @@ submitBtn.addEventListener("click", (event) => {
 function displayLibrary() {
     // Clear container before adding books
     container.innerHTML = "";
-    for (const book of myLibrary) {
+    for (const book of Library.myLibrary) {
         // Create a card
         const cardDiv = document.createElement("div");
         cardDiv.classList.add("card");
@@ -159,7 +164,7 @@ function displayLibrary() {
         removeBtn.setAttribute("type", "button");
         removeBtn.textContent = "Remove";
         removeBtn.addEventListener("click", () => {
-            myLibrary.splice(myLibrary.findIndex(x => x.title === book.title), 1);
+            Library.myLibrary.splice(Library.myLibrary.findIndex(x => x.title === book.title), 1);
             displayLibrary()
         });
 
@@ -172,9 +177,9 @@ function displayLibrary() {
 
 
 // TESTING PURPOSE
-addBookToLibrary("Harry Potter", "J.K. Rowling", 325, true);
-addBookToLibrary("The Hunger Games", "Suzanne Collins", 536, false);
-addBookToLibrary("The Lord of the Rings", "J. R. R. Tolkien", 634, true);
-addBookToLibrary("Atomic Habits", "James Clear", 243, true);
-addBookToLibrary("Dune", "Frank Herbert", 846, false);
+Library.addBookToLibrary("Harry Potter", "J.K. Rowling", 325, true);
+Library.addBookToLibrary("The Hunger Games", "Suzanne Collins", 536, false);
+Library.addBookToLibrary("The Lord of the Rings", "J. R. R. Tolkien", 634, true);
+Library.addBookToLibrary("Atomic Habits", "James Clear", 243, true);
+Library.addBookToLibrary("Dune", "Frank Herbert", 846, false);
 displayLibrary();
