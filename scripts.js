@@ -47,6 +47,7 @@ dialog.addEventListener("click", (event) => {
     }
 });
 
+// Add ".success" and remove ".error" to input if validate
 function setSuccess(element) {
     const errorDisplay = element.parentElement.querySelector(".error-message")
 
@@ -55,6 +56,7 @@ function setSuccess(element) {
     element.classList.remove("error");
 }
 
+// Add ".error" and remove ".success" to input if invalidate
 function setError(element, message) {
     const errorDisplay = element.parentElement.querySelector(".error-message")
 
@@ -63,6 +65,7 @@ function setError(element, message) {
     element.classList.remove("success");
 }
 
+// To validate all inputs after clicking submit button in "New Book"
 function validateInputs() {
     const titleValue = titleInput.value.trim();
     const authorValue = authorInput.value.trim();
